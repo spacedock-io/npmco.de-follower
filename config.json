@@ -1,0 +1,5 @@
+{
+  "registry": "http://localhost:5984/skimdb",
+  "sequenceFile": "sequence",
+  "indexer": "http://localhost:8008"
+}

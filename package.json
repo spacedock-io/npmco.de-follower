@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "author": "Spacedock <hello@spacedock.io>",
   "dependencies": {
-    "follow": "^0.11.3"
+    "follow": "^0.11.3",
+    "joke": "0.0.1-1",
+    "request": "^2.46.0"
   }
 }
