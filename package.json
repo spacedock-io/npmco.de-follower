@@ -1,0 +1,8 @@
+{
+  "name": "npmco.de-follower",
+  "version": "0.0.0",
+  "author": "Spacedock <hello@spacedock.io>",
+  "dependencies": {
+    "follow": "^0.11.3"
+  }
+}
