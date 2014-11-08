@@ -1,5 +1,5 @@
 {
-  "registry": "http://localhost:5984/skimdb",
+  "registry": "https://skimdb.npmjs.com/registry",
   "sequenceFile": "sequence",
   "indexer": "http://localhost:8008"
 }
