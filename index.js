@@ -37,23 +37,42 @@ feed.on('change', function (change) {
   })
 
   request({
-    url: config.indexer + '/index',
+    url: config.indexer + '/unindex',
     method: 'POST',
     json: true,
-    body: {
-      name: doc.name,
-      version: version
-    }
+    body: { name: doc.name }
   }, function (err, res, body) {
     if (err) {
-      log.error('error while talking to the indexer', err)
+      log.error('error while unindexing', err)
       return
     }
 
     if (res.statusCode === 201)
-      log.info('indexed', { name: doc.name, version: version })
-    else
-      log.error('error while indexing', { statusCode: res.statusCode, body: body })
+      log.info('unindexed', { name: doc.name })
+    else {
+      log.error('error while unindexing', { statusCode: res.statusCode, body: body })
+      return
+    }
+
+    request({
+      url: config.indexer + '/index',
+      method: 'POST',
+      json: true,
+      body: {
+        name: doc.name,
+        version: version
+      }
+    }, function (err, res, body) {
+      if (err) {
+        log.error('error while indexing', err)
+        return
+      }
+
+      if (res.statusCode === 201)
+        log.info('indexed', { name: doc.name, version: version })
+      else
+        log.error('error while indexing', { statusCode: res.statusCode, body: body })
+    })
   })
 })
 
